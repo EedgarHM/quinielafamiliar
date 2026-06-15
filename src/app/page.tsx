@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Leaderboard from "@/components/Leaderboard";
+import MatchExplorer from "@/components/MatchExplorer";
 import { getSeed, loadStandings } from "@/lib/standings";
 
 export const dynamic = "force-dynamic";
@@ -60,6 +61,9 @@ export default async function Home() {
 
       {/* Progreso del torneo */}
       <TournamentProgress played={playedMatches} total={totalMatches} />
+
+      {/* Filtro: pronósticos por partido */}
+      <MatchExplorer matches={seed.matches} results={results} />
 
       <Leaderboard standings={standings} />
 

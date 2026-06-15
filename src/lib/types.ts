@@ -53,3 +53,26 @@ export type StandingRow = {
   miss: number; // # de fallos
   played: number; // partidos ya jugados
 };
+
+// Pronóstico de un participante para UN partido concreto
+export type MatchPrediction = {
+  participantId: number;
+  participantName: string;
+  predHome: number;
+  predAway: number;
+  outcome: Outcome;
+  points: number;
+};
+
+// Vista de un partido con los pronósticos de TODOS los participantes
+export type MatchView = {
+  match: Match;
+  realHome: number | null;
+  realAway: number | null;
+  played: boolean;
+  // conteos rápidos (solo si el partido ya tiene resultado)
+  exact: number;
+  winner: number;
+  miss: number;
+  predictions: MatchPrediction[];
+};

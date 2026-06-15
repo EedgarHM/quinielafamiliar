@@ -8,6 +8,8 @@ import type {
   ResultsMap,
   StandingRow,
   PredictionDetail,
+  MatchView,
+  MatchPrediction,
 } from "./types";
 
 const seed = seedJson as unknown as Seed;
@@ -109,6 +111,58 @@ export function getPlayerDetails(
     });
   }
   return details;
+}
+
+/** Detalle de los pronósticos de TODOS los participantes para UN partido. */
+export function getMatchView(matchN: number, results: ResultsMap): MatchView | null {
+  const match = matchByN.get(matchN);
+  if (!match) return null;
+
+  const real = results[matchN] ?? null;
+  const played = real !== null;
+
+  let exact = 0;
+  let winner = 0;
+  let miss = 0;
+
+  const predictions: MatchPrediction[] = [];
+  for (const p of seed.participants) {
+    const pred = p.predictions[String(matchN)];
+    if (!pred) continue;
+    const { outcome, points } = evaluate(
+      pred[0],
+      pred[1],
+      real?.home ?? null,
+      real?.away ?? null
+    );
+    if (outcome === "exact") exact++;
+    else if (outcome === "winner") winner++;
+    else if (outcome === "miss") miss++;
+    predictions.push({
+      participantId: p.id,
+      participantName: p.name,
+      predHome: pred[0],
+      predAway: pred[1],
+      outcome,
+      points,
+    });
+  }
+
+  // Jugado: más puntos primero, luego nombre. Pendiente: por nombre.
+  predictions.sort(
+    (a, b) => b.points - a.points || a.participantName.localeCompare(b.participantName)
+  );
+
+  return {
+    match,
+    realHome: real?.home ?? null,
+    realAway: real?.away ?? null,
+    played,
+    exact,
+    winner,
+    miss,
+    predictions,
+  };
 }
 
 /** Carga resultados + tabla en una sola llamada de servidor. */
