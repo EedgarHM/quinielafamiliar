@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Flag from "./Flag";
+import { shareText } from "@/lib/share";
 import type { PredictionDetail, StandingRow, Outcome } from "@/lib/types";
 
 const OUTCOME_META: Record<
@@ -19,9 +20,13 @@ type PlayerData = { summary: StandingRow; predictions: PredictionDetail[] };
 export default function PlayerModal({
   playerId,
   onClose,
+  isMe = false,
+  onToggleMe,
 }: {
   playerId: number | null;
   onClose: () => void;
+  isMe?: boolean;
+  onToggleMe?: (id: number) => void;
 }) {
   const [data, setData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -86,6 +91,32 @@ export default function PlayerModal({
             <Stat label="Exactos" value={s.exact} accent="text-exact" />
             <Stat label="Ganador" value={s.winner} accent="text-winner" />
             <Stat label="Lugar" value={`#${s.rank}`} accent="text-white" />
+          </div>
+        )}
+
+        {/* Acciones: marcarme como "yo" y compartir */}
+        {s && (
+          <div className="mb-6 grid grid-cols-2 gap-2">
+            <button
+              onClick={() => onToggleMe?.(s.id)}
+              className={`rounded-xl py-2.5 text-sm font-semibold transition ${
+                isMe
+                  ? "bg-neon/20 text-neon2 ring-1 ring-neon/40"
+                  : "bg-white/5 text-white/70 ring-1 ring-white/10 hover:bg-white/10"
+              }`}
+            >
+              {isMe ? "★ Este eres tú" : "Este soy yo"}
+            </button>
+            <button
+              onClick={() =>
+                shareText(
+                  `🏆 Quiniela Mundial 2026\n\n${s.name} va en el lugar #${s.rank} con ${s.points} pts (${s.exact} exactos, ${s.winner} de ganador).`
+                )
+              }
+              className="rounded-xl bg-[#25D366] py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              📲 Compartir
+            </button>
           </div>
         )}
 

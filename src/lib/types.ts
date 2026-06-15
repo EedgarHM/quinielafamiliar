@@ -74,5 +74,7 @@ export type MatchView = {
   exact: number;
   winner: number;
   miss: number;
+  // marcador más pronosticado por la familia (consenso)
+  topPrediction: { home: number; away: number; count: number } | null;
   predictions: MatchPrediction[];
 };

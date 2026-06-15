@@ -125,6 +125,9 @@ export function getMatchView(matchN: number, results: ResultsMap): MatchView | n
   let winner = 0;
   let miss = 0;
 
+  // tally de marcadores para hallar el consenso (el más pronosticado)
+  const tally = new Map<string, number>();
+
   const predictions: MatchPrediction[] = [];
   for (const p of seed.participants) {
     const pred = p.predictions[String(matchN)];
@@ -138,6 +141,10 @@ export function getMatchView(matchN: number, results: ResultsMap): MatchView | n
     if (outcome === "exact") exact++;
     else if (outcome === "winner") winner++;
     else if (outcome === "miss") miss++;
+
+    const key = `${pred[0]}-${pred[1]}`;
+    tally.set(key, (tally.get(key) ?? 0) + 1);
+
     predictions.push({
       participantId: p.id,
       participantName: p.name,
@@ -146,6 +153,15 @@ export function getMatchView(matchN: number, results: ResultsMap): MatchView | n
       outcome,
       points,
     });
+  }
+
+  // marcador más repetido (consenso de la familia)
+  let topPrediction: MatchView["topPrediction"] = null;
+  for (const [key, count] of tally) {
+    if (!topPrediction || count > topPrediction.count) {
+      const [h, a] = key.split("-").map(Number);
+      topPrediction = { home: h, away: a, count };
+    }
   }
 
   // Jugado: más puntos primero, luego nombre. Pendiente: por nombre.
@@ -161,6 +177,7 @@ export function getMatchView(matchN: number, results: ResultsMap): MatchView | n
     exact,
     winner,
     miss,
+    topPrediction,
     predictions,
   };
 }

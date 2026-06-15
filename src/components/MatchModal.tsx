@@ -113,8 +113,22 @@ export default function MatchModal({
           </div>
         )}
         {data && !hasResult && (
-          <div className="mb-5 rounded-xl bg-white/[0.03] py-2.5 text-center text-xs text-white/45 ring-1 ring-white/5">
+          <div className="mb-3 rounded-xl bg-white/[0.03] py-2.5 text-center text-xs text-white/45 ring-1 ring-white/5">
             ⏳ Partido sin resultado todavía
+          </div>
+        )}
+
+        {/* Pronóstico más popular (consenso de la familia) */}
+        {data?.topPrediction && (
+          <div className="mb-5 flex items-center justify-center gap-2 rounded-xl bg-neon2/[0.07] py-2.5 text-center text-xs text-white/65 ring-1 ring-neon2/20">
+            <span>🔥 Lo más pronosticado:</span>
+            <span className="font-mono text-sm font-bold text-neon2">
+              {data.topPrediction.home}-{data.topPrediction.away}
+            </span>
+            <span className="text-white/40">
+              ({data.topPrediction.count}{" "}
+              {data.topPrediction.count === 1 ? "persona" : "personas"})
+            </span>
           </div>
         )}
 
