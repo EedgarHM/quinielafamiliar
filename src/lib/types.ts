@@ -32,6 +32,7 @@ export type Outcome = "exact" | "winner" | "miss" | "pending";
 
 export type PredictionDetail = {
   matchN: number;
+  date: string;
   home: string;
   away: string;
   homeIso: string;

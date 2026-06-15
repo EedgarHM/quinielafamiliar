@@ -98,6 +98,7 @@ export function getPlayerDetails(
     );
     details.push({
       matchN: m.n,
+      date: m.date,
       home: m.home,
       away: m.away,
       homeIso: m.homeIso,

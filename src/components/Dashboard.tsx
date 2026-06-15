@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import PlayerModal from "./PlayerModal";
 import Podium from "./Podium";
 import MatchExplorer from "./MatchExplorer";
+import DayPredictions from "./DayPredictions";
 import { shareText } from "@/lib/share";
 import { formatDateShort } from "@/lib/format";
 import type { Match, ResultsMap, StandingRow } from "@/lib/types";
@@ -97,6 +98,9 @@ export default function Dashboard({
           </button>
         </div>
       )}
+
+      {/* Tus pronósticos del día */}
+      <DayPredictions matches={matches} meId={meId} />
 
       {/* Pronósticos por partido (slider) */}
       <div className="mb-8">
