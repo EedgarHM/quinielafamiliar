@@ -6,6 +6,7 @@ export type Match = {
   away: string;
   homeIso: string;
   awayIso: string;
+  date: string; // ISO "YYYY-MM-DD" (calendario oficial FIFA 2026)
 };
 
 export type Participant = {

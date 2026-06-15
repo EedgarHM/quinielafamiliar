@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Flag from "./Flag";
+import { formatDateLong } from "@/lib/format";
 import type { MatchView, Outcome } from "@/lib/types";
 
 const OUTCOME_META: Record<
@@ -70,9 +71,16 @@ export default function MatchModal({
 
         {/* Encabezado del partido */}
         <div className="mb-5">
-          <p className="text-xs uppercase tracking-[0.2em] text-neon2/80">
-            Partido #{matchN}
-          </p>
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-xs uppercase tracking-[0.2em] text-neon2/80">
+              Partido #{matchN}
+            </p>
+            {m && (
+              <p className="text-[11px] text-white/45">
+                📅 {formatDateLong(m.date)}
+              </p>
+            )}
+          </div>
           {m ? (
             <div className="mt-3 flex items-center justify-between gap-3">
               <div className="flex min-w-0 flex-1 flex-col items-center gap-1.5 text-center">

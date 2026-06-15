@@ -7,504 +7,576 @@
       "home": "MÉXICO",
       "away": "SUDÁFRICA",
       "homeIso": "mx",
-      "awayIso": "za"
+      "awayIso": "za",
+      "date": "2026-06-11"
     },
     {
       "n": 2,
       "home": "COREA DEL SUR",
       "away": "REPÚBLICA CHECA",
       "homeIso": "kr",
-      "awayIso": "cz"
+      "awayIso": "cz",
+      "date": "2026-06-11"
     },
     {
       "n": 3,
       "home": "CANADÁ",
       "away": "BOSNIA",
       "homeIso": "ca",
-      "awayIso": "ba"
+      "awayIso": "ba",
+      "date": "2026-06-12"
     },
     {
       "n": 4,
       "home": "ESTADOS UNIDOS",
       "away": "PARAGUAY",
       "homeIso": "us",
-      "awayIso": "py"
+      "awayIso": "py",
+      "date": "2026-06-12"
     },
     {
       "n": 5,
       "home": "QATAR",
       "away": "SUIZA",
       "homeIso": "qa",
-      "awayIso": "ch"
+      "awayIso": "ch",
+      "date": "2026-06-13"
     },
     {
       "n": 6,
       "home": "BRASIL",
       "away": "MARRUECOS",
       "homeIso": "br",
-      "awayIso": "ma"
+      "awayIso": "ma",
+      "date": "2026-06-13"
     },
     {
       "n": 7,
       "home": "HAITÍ",
       "away": "ESCOCIA",
       "homeIso": "ht",
-      "awayIso": "gb-sct"
+      "awayIso": "gb-sct",
+      "date": "2026-06-13"
     },
     {
       "n": 8,
       "home": "AUSTRALIA",
       "away": "TURQUÍA",
       "homeIso": "au",
-      "awayIso": "tr"
+      "awayIso": "tr",
+      "date": "2026-06-13"
     },
     {
       "n": 9,
       "home": "ALEMANIA",
       "away": "CURAZAO",
       "homeIso": "de",
-      "awayIso": "cw"
+      "awayIso": "cw",
+      "date": "2026-06-14"
     },
     {
       "n": 10,
       "home": "HOLANDA",
       "away": "JAPÓN",
       "homeIso": "nl",
-      "awayIso": "jp"
+      "awayIso": "jp",
+      "date": "2026-06-14"
     },
     {
       "n": 11,
       "home": "COSTA DE MARFIL",
       "away": "ECUADOR",
       "homeIso": "ci",
-      "awayIso": "ec"
+      "awayIso": "ec",
+      "date": "2026-06-14"
     },
     {
       "n": 12,
       "home": "SUECIA",
       "away": "TÚNEZ",
       "homeIso": "se",
-      "awayIso": "tn"
+      "awayIso": "tn",
+      "date": "2026-06-14"
     },
     {
       "n": 13,
       "home": "ESPAÑA",
       "away": "CABO VERDE",
       "homeIso": "es",
-      "awayIso": "cv"
+      "awayIso": "cv",
+      "date": "2026-06-15"
     },
     {
       "n": 14,
       "home": "BÉLGICA",
       "away": "EGIPTO",
       "homeIso": "be",
-      "awayIso": "eg"
+      "awayIso": "eg",
+      "date": "2026-06-15"
     },
     {
       "n": 15,
       "home": "ARABIA SAUDITA",
       "away": "URUGUAY",
       "homeIso": "sa",
-      "awayIso": "uy"
+      "awayIso": "uy",
+      "date": "2026-06-15"
     },
     {
       "n": 16,
       "home": "IRÁN",
       "away": "NUEVA ZELANDA",
       "homeIso": "ir",
-      "awayIso": "nz"
+      "awayIso": "nz",
+      "date": "2026-06-15"
     },
     {
       "n": 17,
       "home": "FRANCIA",
       "away": "SENEGAL",
       "homeIso": "fr",
-      "awayIso": "sn"
+      "awayIso": "sn",
+      "date": "2026-06-16"
     },
     {
       "n": 18,
       "home": "IRAK",
       "away": "NORUEGA",
       "homeIso": "iq",
-      "awayIso": "no"
+      "awayIso": "no",
+      "date": "2026-06-16"
     },
     {
       "n": 19,
       "home": "ARGENTINA",
       "away": "ARGELIA",
       "homeIso": "ar",
-      "awayIso": "dz"
+      "awayIso": "dz",
+      "date": "2026-06-16"
     },
     {
       "n": 20,
       "home": "AUSTRIA",
       "away": "JORDANIA",
       "homeIso": "at",
-      "awayIso": "jo"
+      "awayIso": "jo",
+      "date": "2026-06-16"
     },
     {
       "n": 21,
       "home": "PORTUGAL",
       "away": "RD CONGO",
       "homeIso": "pt",
-      "awayIso": "cd"
+      "awayIso": "cd",
+      "date": "2026-06-17"
     },
     {
       "n": 22,
       "home": "INGLATERRA",
       "away": "CROACIA",
       "homeIso": "gb-eng",
-      "awayIso": "hr"
+      "awayIso": "hr",
+      "date": "2026-06-17"
     },
     {
       "n": 23,
       "home": "GHANA",
       "away": "PANAMÁ",
       "homeIso": "gh",
-      "awayIso": "pa"
+      "awayIso": "pa",
+      "date": "2026-06-17"
     },
     {
       "n": 24,
       "home": "UZBEKISTÁN",
       "away": "COLOMBIA",
       "homeIso": "uz",
-      "awayIso": "co"
+      "awayIso": "co",
+      "date": "2026-06-17"
     },
     {
       "n": 25,
       "home": "REPÚBLICA CHECA",
       "away": "SUDÁFRICA",
       "homeIso": "cz",
-      "awayIso": "za"
+      "awayIso": "za",
+      "date": "2026-06-18"
     },
     {
       "n": 26,
       "home": "SUIZA",
       "away": "BOSNIA",
       "homeIso": "ch",
-      "awayIso": "ba"
+      "awayIso": "ba",
+      "date": "2026-06-18"
     },
     {
       "n": 27,
       "home": "CANADÁ",
       "away": "QATAR",
       "homeIso": "ca",
-      "awayIso": "qa"
+      "awayIso": "qa",
+      "date": "2026-06-18"
     },
     {
       "n": 28,
       "home": "MÉXICO",
       "away": "COREA DEL SUR",
       "homeIso": "mx",
-      "awayIso": "kr"
+      "awayIso": "kr",
+      "date": "2026-06-18"
     },
     {
       "n": 29,
       "home": "ESTADOS UNIDOS",
       "away": "AUSTRALIA",
       "homeIso": "us",
-      "awayIso": "au"
+      "awayIso": "au",
+      "date": "2026-06-19"
     },
     {
       "n": 30,
       "home": "ESCOCIA",
       "away": "MARRUECOS",
       "homeIso": "gb-sct",
-      "awayIso": "ma"
+      "awayIso": "ma",
+      "date": "2026-06-19"
     },
     {
       "n": 31,
       "home": "BRASIL",
       "away": "HAITÍ",
       "homeIso": "br",
-      "awayIso": "ht"
+      "awayIso": "ht",
+      "date": "2026-06-19"
     },
     {
       "n": 32,
       "home": "TURQUÍA",
       "away": "PARAGUAY",
       "homeIso": "tr",
-      "awayIso": "py"
+      "awayIso": "py",
+      "date": "2026-06-19"
     },
     {
       "n": 33,
       "home": "HOLANDA",
       "away": "SUECIA",
       "homeIso": "nl",
-      "awayIso": "se"
+      "awayIso": "se",
+      "date": "2026-06-20"
     },
     {
       "n": 34,
       "home": "ALEMANIA",
       "away": "COSTA DE MARFIL",
       "homeIso": "de",
-      "awayIso": "ci"
+      "awayIso": "ci",
+      "date": "2026-06-20"
     },
     {
       "n": 35,
       "home": "ECUADOR",
       "away": "CURAZAO",
       "homeIso": "ec",
-      "awayIso": "cw"
+      "awayIso": "cw",
+      "date": "2026-06-20"
     },
     {
       "n": 36,
       "home": "TÚNEZ",
       "away": "JAPÓN",
       "homeIso": "tn",
-      "awayIso": "jp"
+      "awayIso": "jp",
+      "date": "2026-06-20"
     },
     {
       "n": 37,
       "home": "ESPAÑA",
       "away": "ARABIA SAUDITA",
       "homeIso": "es",
-      "awayIso": "sa"
+      "awayIso": "sa",
+      "date": "2026-06-21"
     },
     {
       "n": 38,
       "home": "BÉLGICA",
       "away": "IRÁN",
       "homeIso": "be",
-      "awayIso": "ir"
+      "awayIso": "ir",
+      "date": "2026-06-21"
     },
     {
       "n": 39,
       "home": "URUGUAY",
       "away": "CABO VERDE",
       "homeIso": "uy",
-      "awayIso": "cv"
+      "awayIso": "cv",
+      "date": "2026-06-21"
     },
     {
       "n": 40,
       "home": "NUEVA ZELANDA",
       "away": "EGIPTO",
       "homeIso": "nz",
-      "awayIso": "eg"
+      "awayIso": "eg",
+      "date": "2026-06-21"
     },
     {
       "n": 41,
       "home": "ARGENTINA",
       "away": "AUSTRIA",
       "homeIso": "ar",
-      "awayIso": "at"
+      "awayIso": "at",
+      "date": "2026-06-22"
     },
     {
       "n": 42,
       "home": "FRANCIA",
       "away": "IRAK",
       "homeIso": "fr",
-      "awayIso": "iq"
+      "awayIso": "iq",
+      "date": "2026-06-22"
     },
     {
       "n": 43,
       "home": "NORUEGA",
       "away": "SENEGAL",
       "homeIso": "no",
-      "awayIso": "sn"
+      "awayIso": "sn",
+      "date": "2026-06-22"
     },
     {
       "n": 44,
       "home": "JORDANIA",
       "away": "ARGELIA",
       "homeIso": "jo",
-      "awayIso": "dz"
+      "awayIso": "dz",
+      "date": "2026-06-22"
     },
     {
       "n": 45,
       "home": "PORTUGAL",
       "away": "UZBEKISTÁN",
       "homeIso": "pt",
-      "awayIso": "uz"
+      "awayIso": "uz",
+      "date": "2026-06-23"
     },
     {
       "n": 46,
       "home": "INGLATERRA",
       "away": "GHANA",
       "homeIso": "gb-eng",
-      "awayIso": "gh"
+      "awayIso": "gh",
+      "date": "2026-06-23"
     },
     {
       "n": 47,
       "home": "PANAMÁ",
       "away": "CROACIA",
       "homeIso": "pa",
-      "awayIso": "hr"
+      "awayIso": "hr",
+      "date": "2026-06-23"
     },
     {
       "n": 48,
       "home": "COLOMBIA",
       "away": "RD CONGO",
       "homeIso": "co",
-      "awayIso": "cd"
+      "awayIso": "cd",
+      "date": "2026-06-23"
     },
     {
       "n": 49,
       "home": "BOSNIA",
       "away": "QATAR",
       "homeIso": "ba",
-      "awayIso": "qa"
+      "awayIso": "qa",
+      "date": "2026-06-24"
     },
     {
       "n": 50,
       "home": "SUIZA",
       "away": "CANADÁ",
       "homeIso": "ch",
-      "awayIso": "ca"
+      "awayIso": "ca",
+      "date": "2026-06-24"
     },
     {
       "n": 51,
       "home": "ESCOCIA",
       "away": "BRASIL",
       "homeIso": "gb-sct",
-      "awayIso": "br"
+      "awayIso": "br",
+      "date": "2026-06-24"
     },
     {
       "n": 52,
       "home": "MARRUECOS",
       "away": "HAITÍ",
       "homeIso": "ma",
-      "awayIso": "ht"
+      "awayIso": "ht",
+      "date": "2026-06-24"
     },
     {
       "n": 53,
       "home": "SUDÁFRICA",
       "away": "COREA DEL SUR",
       "homeIso": "za",
-      "awayIso": "kr"
+      "awayIso": "kr",
+      "date": "2026-06-24"
     },
     {
       "n": 54,
       "home": "REPÚBLICA CHECA",
       "away": "MÉXICO",
       "homeIso": "cz",
-      "awayIso": "mx"
+      "awayIso": "mx",
+      "date": "2026-06-24"
     },
     {
       "n": 55,
       "home": "ECUADOR",
       "away": "ALEMANIA",
       "homeIso": "ec",
-      "awayIso": "de"
+      "awayIso": "de",
+      "date": "2026-06-25"
     },
     {
       "n": 56,
       "home": "CURAZAO",
       "away": "COSTA DE MARFIL",
       "homeIso": "cw",
-      "awayIso": "ci"
+      "awayIso": "ci",
+      "date": "2026-06-25"
     },
     {
       "n": 57,
       "home": "JAPÓN",
       "away": "SUECIA",
       "homeIso": "jp",
-      "awayIso": "se"
+      "awayIso": "se",
+      "date": "2026-06-25"
     },
     {
       "n": 58,
       "home": "TÚNEZ",
       "away": "HOLANDA",
       "homeIso": "tn",
-      "awayIso": "nl"
+      "awayIso": "nl",
+      "date": "2026-06-25"
     },
     {
       "n": 59,
       "home": "TURQUÍA",
       "away": "ESTADOS UNIDOS",
       "homeIso": "tr",
-      "awayIso": "us"
+      "awayIso": "us",
+      "date": "2026-06-25"
     },
     {
       "n": 60,
       "home": "PARAGUAY",
       "away": "AUSTRALIA",
       "homeIso": "py",
-      "awayIso": "au"
+      "awayIso": "au",
+      "date": "2026-06-25"
     },
     {
       "n": 61,
       "home": "SENEGAL",
       "away": "IRAK",
       "homeIso": "sn",
-      "awayIso": "iq"
+      "awayIso": "iq",
+      "date": "2026-06-26"
     },
     {
       "n": 62,
       "home": "NORUEGA",
       "away": "FRANCIA",
       "homeIso": "no",
-      "awayIso": "fr"
+      "awayIso": "fr",
+      "date": "2026-06-26"
     },
     {
       "n": 63,
       "home": "URUGUAY",
       "away": "ESPAÑA",
       "homeIso": "uy",
-      "awayIso": "es"
+      "awayIso": "es",
+      "date": "2026-06-26"
     },
     {
       "n": 64,
       "home": "CABO VERDE",
       "away": "ARABIA SAUDITA",
       "homeIso": "cv",
-      "awayIso": "sa"
+      "awayIso": "sa",
+      "date": "2026-06-26"
     },
     {
       "n": 65,
       "home": "NUEVA ZELANDA",
       "away": "BÉLGICA",
       "homeIso": "nz",
-      "awayIso": "be"
+      "awayIso": "be",
+      "date": "2026-06-26"
     },
     {
       "n": 66,
       "home": "EGIPTO",
       "away": "IRÁN",
       "homeIso": "eg",
-      "awayIso": "ir"
+      "awayIso": "ir",
+      "date": "2026-06-26"
     },
     {
       "n": 67,
       "home": "CROACIA",
       "away": "GHANA",
       "homeIso": "hr",
-      "awayIso": "gh"
+      "awayIso": "gh",
+      "date": "2026-06-27"
     },
     {
       "n": 68,
       "home": "PANAMÁ",
       "away": "INGLATERRA",
       "homeIso": "pa",
-      "awayIso": "gb-eng"
+      "awayIso": "gb-eng",
+      "date": "2026-06-27"
     },
     {
       "n": 69,
       "home": "COLOMBIA",
       "away": "PORTUGAL",
       "homeIso": "co",
-      "awayIso": "pt"
+      "awayIso": "pt",
+      "date": "2026-06-27"
     },
     {
       "n": 70,
       "home": "RD CONGO",
       "away": "UZBEKISTÁN",
       "homeIso": "cd",
-      "awayIso": "uz"
+      "awayIso": "uz",
+      "date": "2026-06-27"
     },
     {
       "n": 71,
       "home": "JORDANIA",
       "away": "ARGENTINA",
       "homeIso": "jo",
-      "awayIso": "ar"
+      "awayIso": "ar",
+      "date": "2026-06-27"
     },
     {
       "n": 72,
       "home": "ARGELIA",
       "away": "AUSTRIA",
       "homeIso": "dz",
-      "awayIso": "at"
+      "awayIso": "at",
+      "date": "2026-06-27"
     }
   ],
   "participants": [

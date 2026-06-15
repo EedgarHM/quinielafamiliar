@@ -123,8 +123,8 @@ export default function Podium({
 
   return (
     <section className="mb-12">
-      <h2 className="mb-6 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.25em] text-white/50">
-        <span className="h-px w-6 bg-gradient-to-r from-neon to-transparent" />
+      <h2 className="mb-6 flex items-center gap-2 text-lg font-bold text-white/90">
+        <span className="text-xl">🏆</span>
         Podio
       </h2>
       <div className="glass relative overflow-hidden rounded-3xl px-3 py-6 sm:px-6">

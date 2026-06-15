@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 import Flag from "./Flag";
 import MatchModal from "./MatchModal";
+import { formatDateShort } from "@/lib/format";
 import type { Match, ResultsMap } from "@/lib/types";
 
 export default function MatchExplorer({
@@ -73,7 +74,7 @@ export default function MatchExplorer({
             >
               <div className="mb-2 flex items-center justify-between">
                 <span className="text-[10px] font-medium uppercase tracking-wider text-white/40">
-                  Partido {m.n}
+                  P{m.n} · {formatDateShort(m.date)}
                 </span>
                 {played ? (
                   <span className="rounded-full bg-neon2/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-neon2">
