@@ -28,3 +28,18 @@ export function formatDateLong(iso: string) {
   const s = LONG.format(toDate(iso));
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
+
+/** Hoy en ISO "YYYY-MM-DD" según la zona local del dispositivo. */
+export function todayISO(): string {
+  const d = new Date();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${d.getFullYear()}-${m}-${day}`;
+}
+
+/** Desplaza una fecha ISO N días (fijado a mediodía UTC para no cruzar de día). */
+export function shiftISO(iso: string, days: number): string {
+  const d = toDate(iso);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}

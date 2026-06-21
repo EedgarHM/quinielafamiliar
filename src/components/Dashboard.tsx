@@ -55,9 +55,14 @@ export default function Dashboard({
   );
 
   const filtered = useMemo(() => {
-    const q = norm(query.trim());
-    if (!q) return standings;
-    return standings.filter((r) => norm(r.name).includes(q));
+    const raw = query.trim();
+    if (!raw) return standings;
+    const q = norm(raw);
+    // Si el texto es solo dígitos, también se busca por ID del participante.
+    const byId = /^\d+$/.test(raw);
+    return standings.filter(
+      (r) => norm(r.name).includes(q) || (byId && String(r.id).includes(raw))
+    );
   }, [standings, query]);
 
   const shareStandings = () => {
@@ -142,7 +147,7 @@ export default function Dashboard({
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Busca tu nombre…"
+            placeholder="Busca por nombre o ID…"
             className="w-full rounded-xl bg-white/[0.04] py-2.5 pl-9 pr-3 text-sm text-white placeholder:text-white/30 ring-1 ring-white/10 transition focus:outline-none focus:ring-neon/50"
           />
           {query && (

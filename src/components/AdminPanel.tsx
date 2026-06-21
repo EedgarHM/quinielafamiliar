@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Flag from "./Flag";
+import { formatDateLong, todayISO } from "@/lib/format";
 import type { Match, ResultsMap } from "@/lib/types";
 
 export default function AdminPanel({ matches }: { matches: Match[] }) {
@@ -9,6 +10,8 @@ export default function AdminPanel({ matches }: { matches: Match[] }) {
   const [authed, setAuthed] = useState(false);
   const [results, setResults] = useState<ResultsMap>({});
   const [error, setError] = useState("");
+  // null = vista por defecto (hoy + próximos). Si trae fecha, muestra ese día.
+  const [filterDate, setFilterDate] = useState<string | null>(null);
 
   // Cargar resultados existentes
   useEffect(() => {
@@ -17,6 +20,64 @@ export default function AdminPanel({ matches }: { matches: Match[] }) {
       .then((d: { results: ResultsMap }) => setResults(d.results ?? {}))
       .catch(() => {});
   }, []);
+
+  const today = todayISO();
+
+  const allDates = useMemo(
+    () => [...new Set(matches.map((m) => m.date))].sort(),
+    [matches]
+  );
+
+  // Partidos de días YA PASADOS (para el sidebar), más recientes primero.
+  const playedDays = useMemo(
+    () =>
+      matches
+        .filter((m) => m.date < today)
+        .sort((a, b) => b.date.localeCompare(a.date) || b.n - a.n),
+    [matches, today]
+  );
+  const todays = useMemo(
+    () => matches.filter((m) => m.date === today).sort((a, b) => a.n - b.n),
+    [matches, today]
+  );
+  const future = useMemo(
+    () => matches.filter((m) => m.date > today).sort((a, b) => a.n - b.n),
+    [matches, today]
+  );
+  // Partidos ya jugados que aún NO tienen marcador capturado.
+  const pendingPlayed = useMemo(
+    () => playedDays.filter((m) => results[m.n] === undefined).length,
+    [playedDays, results]
+  );
+
+  const visible = useMemo(
+    () =>
+      filterDate
+        ? matches.filter((m) => m.date === filterDate).sort((a, b) => a.n - b.n)
+        : null,
+    [matches, filterDate]
+  );
+
+  const onSaved = (n: number) => (home: number, away: number) =>
+    setResults((prev) => ({ ...prev, [n]: { home, away } }));
+  const onCleared = (n: number) => () =>
+    setResults((prev) => {
+      const next = { ...prev };
+      delete next[n];
+      return next;
+    });
+
+  const renderRow = (m: Match) => (
+    <MatchRow
+      key={m.n}
+      match={m}
+      password={password}
+      value={results[m.n]}
+      onSaved={onSaved(m.n)}
+      onCleared={onCleared(m.n)}
+      onError={setError}
+    />
+  );
 
   if (!authed) {
     return (
@@ -50,33 +111,180 @@ export default function AdminPanel({ matches }: { matches: Match[] }) {
   }
 
   return (
+    <div className="lg:grid lg:grid-cols-[1fr_19rem] lg:items-start lg:gap-6">
+      {/* Panel principal de captura */}
+      <div className="min-w-0">
+        {error && (
+          <div className="mb-4 rounded-xl border border-miss/40 bg-miss/10 px-4 py-2 text-sm text-miss">
+            {error}
+          </div>
+        )}
+
+        {/* Filtro por fecha */}
+        <div className="mb-4 flex flex-wrap items-center gap-2">
+          <label className="text-xs uppercase tracking-wider text-white/40">
+            Filtrar por fecha
+          </label>
+          <select
+            value={filterDate ?? ""}
+            onChange={(e) => setFilterDate(e.target.value || null)}
+            className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm outline-none transition focus:border-neon"
+          >
+            <option value="">Hoy y próximos</option>
+            {allDates.map((d) => {
+              const count = matches.filter((m) => m.date === d).length;
+              return (
+                <option key={d} value={d}>
+                  {formatDateLong(d)} ({count})
+                </option>
+              );
+            })}
+          </select>
+          {filterDate && (
+            <button
+              onClick={() => setFilterDate(null)}
+              className="rounded-lg bg-white/5 px-2.5 py-1.5 text-xs text-white/50 transition hover:bg-white/10 hover:text-white"
+            >
+              ✕ Quitar filtro
+            </button>
+          )}
+        </div>
+
+        {visible ? (
+          /* Vista de una fecha seleccionada */
+          <Group title={formatDateLong(filterDate!)} count={visible.length}>
+            {visible.length > 0 ? (
+              visible.map(renderRow)
+            ) : (
+              <EmptyHint>No hay partidos ese día.</EmptyHint>
+            )}
+          </Group>
+        ) : (
+          /* Vista por defecto: HOY (separado) y PRÓXIMOS */
+          <>
+            <Group title="Hoy" count={todays.length} accent>
+              {todays.length > 0 ? (
+                todays.map(renderRow)
+              ) : (
+                <EmptyHint>No hay partidos hoy.</EmptyHint>
+              )}
+            </Group>
+
+            <div className="my-5 flex items-center gap-3">
+              <span className="h-px flex-1 bg-white/10" />
+              <span className="text-[11px] uppercase tracking-[0.2em] text-white/30">
+                Próximos
+              </span>
+              <span className="h-px flex-1 bg-white/10" />
+            </div>
+
+            <Group title="Próximos" count={future.length} hideTitle>
+              {future.length > 0 ? (
+                future.map(renderRow)
+              ) : (
+                <EmptyHint>No quedan partidos por jugar.</EmptyHint>
+              )}
+            </Group>
+          </>
+        )}
+      </div>
+
+      {/* Sidebar: partidos ya jugados (días previos) */}
+      <aside className="mt-8 lg:mt-0 lg:sticky lg:top-6">
+        <div className="glass rounded-2xl p-4">
+          <div className="mb-3 flex items-center justify-between gap-2">
+            <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+              Ya jugados · {playedDays.length}
+            </h2>
+            {pendingPlayed > 0 && (
+              <span className="rounded-full bg-miss/15 px-2 py-0.5 text-[10px] font-semibold text-miss">
+                {pendingPlayed} sin capturar
+              </span>
+            )}
+          </div>
+
+          {playedDays.length === 0 ? (
+            <p className="py-4 text-center text-xs text-white/35">
+              Aún no hay partidos de días previos.
+            </p>
+          ) : (
+            <div className="max-h-[70vh] space-y-1.5 overflow-y-auto pr-1 [scrollbar-width:thin]">
+              {playedDays.map((m) => {
+                const real = results[m.n];
+                const captured = real !== undefined;
+                const active = filterDate === m.date;
+                return (
+                  <button
+                    key={m.n}
+                    onClick={() => setFilterDate(m.date)}
+                    title={`Editar P${m.n} (${formatDateLong(m.date)})`}
+                    className={`flex w-full items-center gap-2 rounded-xl px-2.5 py-2 text-left transition hover:bg-white/[0.06] ${
+                      active ? "bg-neon/[0.1] ring-1 ring-neon/40" : "bg-white/[0.03]"
+                    } ${!captured ? "ring-1 ring-miss/25" : ""}`}
+                  >
+                    <span className="w-7 shrink-0 text-center text-[10px] text-white/35">
+                      P{m.n}
+                    </span>
+                    <Flag iso={m.homeIso} name={m.home} size="sm" />
+                    <span className="min-w-0 flex-1 truncate text-xs text-white/75">
+                      {m.home} <span className="text-white/30">vs</span> {m.away}
+                    </span>
+                    <Flag iso={m.awayIso} name={m.away} size="sm" />
+                    {captured ? (
+                      <span className="shrink-0 font-mono text-xs font-bold text-exact">
+                        {real.home}-{real.away}
+                      </span>
+                    ) : (
+                      <span className="shrink-0 text-[10px] font-medium text-miss">falta</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+          <p className="mt-3 text-[11px] leading-snug text-white/35">
+            Toca un partido para abrir su día y editar el marcador.
+          </p>
+        </div>
+      </aside>
+    </div>
+  );
+}
+
+function Group({
+  title,
+  count,
+  children,
+  accent = false,
+  hideTitle = false,
+}: {
+  title: string;
+  count: number;
+  children: React.ReactNode;
+  accent?: boolean;
+  hideTitle?: boolean;
+}) {
+  return (
     <div>
-      {error && (
-        <div className="mb-4 rounded-xl border border-miss/40 bg-miss/10 px-4 py-2 text-sm text-miss">
-          {error}
+      {!hideTitle && (
+        <div className="mb-2 flex items-center gap-2">
+          <h2
+            className={`text-sm font-bold ${accent ? "text-gradient" : "text-white/85"}`}
+          >
+            {title}
+          </h2>
+          <span className="text-[11px] text-white/35">· {count}</span>
         </div>
       )}
-      <div className="space-y-2">
-        {matches.map((m) => (
-          <MatchRow
-            key={m.n}
-            match={m}
-            password={password}
-            value={results[m.n]}
-            onSaved={(home, away) =>
-              setResults((prev) => ({ ...prev, [m.n]: { home, away } }))
-            }
-            onCleared={() =>
-              setResults((prev) => {
-                const next = { ...prev };
-                delete next[m.n];
-                return next;
-              })
-            }
-            onError={setError}
-          />
-        ))}
-      </div>
+      <div className="space-y-2">{children}</div>
+    </div>
+  );
+}
+
+function EmptyHint({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="rounded-xl bg-white/[0.03] px-4 py-6 text-center text-sm text-white/40">
+      {children}
     </div>
   );
 }

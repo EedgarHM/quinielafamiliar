@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export default function AdminPage() {
   const matches = getMatches();
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+    <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10">
       <header className="mb-8">
         <Link href="/" className="text-sm text-white/40 transition hover:text-white/70">
           ← Volver a la tabla
