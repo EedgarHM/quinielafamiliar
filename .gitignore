@@ -42,3 +42,6 @@ next-env.d.ts
 
 # datos locales de resultados
 /.data
+
+# Claude Code (config personal, no compartir)
+.claude/settings.local.json

@@ -20,6 +20,9 @@ export default async function Home() {
         <h1 className="text-4xl font-black tracking-tight sm:text-5xl">
           <span className="text-gradient">MUNDIAL 2026</span>
         </h1>
+        <p className="mt-2 text-sm font-bold uppercase tracking-[0.3em] text-neon2/90">
+          16vos de Final
+        </p>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm">
           <span className="inline-flex items-center rounded-full bg-winner/15 px-4 py-1.5 font-semibold text-winner ring-1 ring-winner/30">
             🏆 Premio {seed.prize}
