@@ -1,0 +1,204 @@
+{
+  "_instrucciones": {
+    "que_es": "Estructura que Claude espera para ACTUALIZAR jugadores y pronósticos de la quiniela. Llena esto y pásamelo; yo lo transformo a src/data/seed.json (banderas ISO, MAYÚSCULAS de equipos, acentos y fechas los normalizo yo).",
+    "reglas": [
+      "tournament: nombre visible de la ronda. Ej. \"MUNDIAL 2026 · OCTAVOS DE FINAL\".",
+      "prize: texto del premio tal cual se muestra. Ej. \",500\".",
+      "matches: partidos de esta ronda. n = consecutivo desde 1. date = YYYY-MM-DD (año 2026). home/away = nombres de las selecciones; NO necesitas códigos de bandera, yo los deduzco.",
+      "matches[].homeIso / awayIso: OPCIONALES. Solo si quieres forzar una bandera puntual (ej. gb-eng para Inglaterra); si no, los deduzco.",
+      "participants[].id = número único y ESTABLE: si es la misma persona de la ronda anterior, conserva su id para que su \"este soy yo\" (localStorage) siga funcionando.",
+      "participants[].predictions = mapa { \"<n de partido>\": \"<local>-<visitante>\" }. Ej. \"2-1\" = local 2, visitante 1. También acepto [2,1]. Debe haber un pronóstico por CADA partido de matches.",
+      "Ronda NUEVA = competencia desde cero: dime y creo colección Mongo + ranking nuevos (como se hizo con results_16vos). Si SOLO corriges pronósticos de la ronda actual (mismos partidos), omite \"matches\" y manda solo lo que cambie: hago el diff quirúrgico."
+    ],
+    "reglas_de_puntos": "2 = marcador exacto · 1 = acertó ganador/empate · 0 = falló (penales no se modelan).",
+    "estado_actual": "16vos: 16 partidos, 25 jugadores, 400 pronósticos (colección results_16vos)."
+  },
+  "_ejemplo_de_un_jugador_lleno": {
+    "id": 1,
+    "name": "Aislinn Alfaro",
+    "predictions": {
+      "1": "2-1",
+      "2": "1-1",
+      "3": "0-0"
+    }
+  },
+  "tournament": "MUNDIAL 2026 · OCTAVOS DE FINAL",
+  "prize": "$7,500",
+  "matches": [
+    {
+      "n": 1,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    },
+    {
+      "n": 2,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    },
+    {
+      "n": 3,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    },
+    {
+      "n": 4,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    },
+    {
+      "n": 5,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    },
+    {
+      "n": 6,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    },
+    {
+      "n": 7,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    },
+    {
+      "n": 8,
+      "date": "2026-07-0X",
+      "home": "EQUIPO LOCAL",
+      "away": "EQUIPO VISITANTE"
+    }
+  ],
+  "participants": [
+    {
+      "id": 1,
+      "name": "Aislinn Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 2,
+      "name": "José Roberto",
+      "predictions": {}
+    },
+    {
+      "id": 3,
+      "name": "Liz Mendoza",
+      "predictions": {}
+    },
+    {
+      "id": 4,
+      "name": "Rorris Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 5,
+      "name": "Carmen Gonzalez",
+      "predictions": {}
+    },
+    {
+      "id": 6,
+      "name": "Luis Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 7,
+      "name": "Ismael Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 8,
+      "name": "Vicente Espinoza D.",
+      "predictions": {}
+    },
+    {
+      "id": 9,
+      "name": "Edgar Hernandez",
+      "predictions": {}
+    },
+    {
+      "id": 10,
+      "name": "Odette Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 11,
+      "name": "Karen Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 12,
+      "name": "Robertinao Siuu",
+      "predictions": {}
+    },
+    {
+      "id": 13,
+      "name": "Alberto Blanco",
+      "predictions": {}
+    },
+    {
+      "id": 14,
+      "name": "Pachas",
+      "predictions": {}
+    },
+    {
+      "id": 15,
+      "name": "Sharon Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 16,
+      "name": "Checo Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 17,
+      "name": "Alvaro Gtz",
+      "predictions": {}
+    },
+    {
+      "id": 18,
+      "name": "Carmela Alfaro",
+      "predictions": {}
+    },
+    {
+      "id": 19,
+      "name": "Sabino G",
+      "predictions": {}
+    },
+    {
+      "id": 20,
+      "name": "J. Carmen Alfaro T",
+      "predictions": {}
+    },
+    {
+      "id": 21,
+      "name": "Nacho Martinez",
+      "predictions": {}
+    },
+    {
+      "id": 22,
+      "name": "George Moreno",
+      "predictions": {}
+    },
+    {
+      "id": 23,
+      "name": "Gaba",
+      "predictions": {}
+    },
+    {
+      "id": 24,
+      "name": "Iker Blanco",
+      "predictions": {}
+    },
+    {
+      "id": 25,
+      "name": "Fache",
+      "predictions": {}
+    }
+  ]
+}

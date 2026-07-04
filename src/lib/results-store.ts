@@ -15,9 +15,9 @@ import type { ResultsMap } from "./types";
 
 const useMongo = !!process.env.MONGODB_URI;
 const DB_NAME = process.env.MONGODB_DB || "quiniela";
-// Fase 16vos: colección propia para que el ranking arranque desde cero.
-// Los resultados de la fase de grupos quedan intactos en la colección "results".
-const COLLECTION = "results_16vos";
+// Fase Octavos: colección propia para que el ranking arranque desde cero.
+// Los resultados de fases previas quedan intactos ("results" grupos, "results_16vos").
+const COLLECTION = "results_octavos";
 
 type ResultDoc = { _id: number; home: number; away: number; updatedAt: Date };
 

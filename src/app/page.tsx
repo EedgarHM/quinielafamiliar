@@ -21,7 +21,7 @@ export default async function Home() {
           <span className="text-gradient">MUNDIAL 2026</span>
         </h1>
         <p className="mt-2 text-sm font-bold uppercase tracking-[0.3em] text-neon2/90">
-          16vos de Final
+          Octavos de Final
         </p>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-sm">
           <span className="inline-flex items-center rounded-full bg-winner/15 px-4 py-1.5 font-semibold text-winner ring-1 ring-winner/30">
